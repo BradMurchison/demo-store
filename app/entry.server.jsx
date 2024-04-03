@@ -15,7 +15,14 @@ export default async function handleRequest(
   responseHeaders,
   remixContext,
 ) {
-  const {nonce, header, NonceProvider} = createContentSecurityPolicy();
+  const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+    connectSrc: [
+      "'self'",
+      'https://cdn.shopify.com',
+      'https://checkout.brads-bread-custom-domain.com',
+      // "http://localhost:3100"
+    ],
+  });
   const body = await renderToReadableStream(
     <NonceProvider>
       <RemixServer context={remixContext} url={request.url} />

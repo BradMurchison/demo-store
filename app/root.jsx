@@ -11,7 +11,7 @@ import {
   useMatches,
   useRouteError,
 } from '@remix-run/react';
-import {ShopifySalesChannel, Seo, useNonce} from '@shopify/hydrogen';
+import {ShopifySalesChannel, Seo, useNonce, Script} from '@shopify/hydrogen';
 import invariant from 'tiny-invariant';
 
 import {Layout} from '~/components';
@@ -112,6 +112,7 @@ export default function App() {
         <Seo />
         <Meta />
         <Links />
+        <Script src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"></Script>
       </head>
       <body>
         <Layout
